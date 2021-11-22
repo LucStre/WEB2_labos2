@@ -12,6 +12,18 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 
+app.get('/authentication', function (req, res) {
+    res.render('authentication');
+});
+
+app.get('/externalXML', function (req, res) {
+    res.render('externalXML');
+});
+
+app.get('/access', function (req, res) {
+    res.render('access');
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
