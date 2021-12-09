@@ -6,14 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Home</title>
 </head>
 
 <body>
-    <h1>Welcome home</h1>
-    <a href="/authentication">Loša autentifikacija (Broken Authentication)</a>
-    <a href="/externalXML">XML entiteti (XML External Entity, XXE) </a>
-    <a href="/access">Loša kontrola pristupa (Broken Access Control)</a>
+    <div class="card">
+        <div class="card-body">
+            <h1>Welcome</h1><br>
+            User: <%= user %>
+                <hr>
+            <%if (!user) { %>
+                <form action="./login">
+                    <input type="submit" value="Log in" class="btn btn-success" />
+                </form>
+                <br>
+                <div>Don't have account? Create one!</div>
+                <form action="./signup">
+                    </br><input type="submit" value="Sign up" class="btn btn-success" />
+                </form>
+            <% } else { %>
+                <form action="./logout">
+                    <input type="submit" value="Log out" class="btn btn-success" />
+                </form>
+            <% } %>
+            
+        </div>
+    </div>
 </body>
 
 </html>

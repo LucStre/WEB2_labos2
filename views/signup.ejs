@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Sign up</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body">
+            <h1>Sign up</h1><br>
+            <form action="./signup" method="post">
+                Username: <input type="text" maxlength="30" minlength="2" name="username"><br>
+                Enter password: <input type="password" maxlength="20" minlength="8" name="passwd1"><br>
+                Repeat password: <input type="password" maxlength="20" minlength="8" name="passwd2"><br>
+                <hr>
+                <input type="submit" value="Sign up" class="btn btn-success" />
+                <input type="reset" value="Reset" class="btn btn-danger">
+            </form>
+            <br>
+            <div>You already have account?</div>
+            <form action="./login">
+                <input type="submit" value="Log in" class="btn btn-success" />
+            </form>
+            <br>
+            <a class="btn btn-info" href="./" role="button">Return home</a>
+        </div>
+    </div>
+</body>
+</html>
