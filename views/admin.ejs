@@ -10,12 +10,11 @@
 <body>
     <div class="card">
         <div class="card-body">
-                <% if (err !== undefined ) { %>
-                    <p style="justify-content: center; background-color: red;">
-                        <%= err %>
-                    </p>
-                    <a class="btn btn-info" href="./" role="button">Return home</a>
-                    
+            <% if (err !==undefined ) { %>
+                <p style="justify-content: center; background-color: red;">
+                    <%= err %>
+                </p>
+
                 <% } else { %>
                     User: <%= user %>
                         <hr>
@@ -25,11 +24,11 @@
                         <form action="./logout">
                             <input type="submit" value="Log out" class="btn btn-success" />
                         </form>
-                <% } %>
-                <a class="btn btn-info" href="./" role="button">Return home</a>
+                        <% } %>
+                            <a class="btn btn-info" href="./" role="button">Return home</a>
         </div>
     </div>
-    
+
 </body>
 
 </html>
