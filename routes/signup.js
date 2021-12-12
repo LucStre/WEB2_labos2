@@ -35,7 +35,7 @@ router.post("/", function (req, res, next) {
   req.session.user = req.body.username;
 
   //TODO: redirect to profile page
-  res.render("home", { user: req.body.username });
+  res.render("home", { user: req.body.username, secure: true });
 });
 
 module.exports = router;
