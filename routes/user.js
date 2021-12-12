@@ -4,13 +4,20 @@ const session = require("express-session");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  if (req.app.users.getUser(req.session.user).role == "admin") {
-    res.redirect("/admin");
-  } else {
-    res.render("user", {
+  if (req.app.users.getUser(req.session.user).role == undefined) {
+    res.render("home", {
       user: req.session.user,
       secure: res.app.get("secure"),
     });
+  } else {
+    if (req.app.users.getUser(req.session.user).role == "admin") {
+      res.redirect("/admin");
+    } else {
+      res.render("user", {
+        user: req.session.user,
+        secure: res.app.get("secure"),
+      });
+    }
   }
 });
 

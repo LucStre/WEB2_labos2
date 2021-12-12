@@ -36,10 +36,7 @@ router.post("/", function (req, res, next) {
     //if successful, redirect to the main page
     req.session.user = req.body.username;
 
-    res.render("home", {
-      user: req.body.username,
-      secure: res.app.get("secure"),
-    });
+    res.redirect("user");
   } else {
     res.render("login", {
       user: req.session.user,

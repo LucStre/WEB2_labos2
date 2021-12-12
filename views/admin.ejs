@@ -19,9 +19,12 @@
                     User: <%= user %>
                         <hr>
                         <h1>Admin Space Page</h1>
-                        <p>Accessible only to users with the 'admin' role.</p> 
+                        <p>Accessible only to users with the 'admin' role.</p>
+                        <br>
+                        <form action="./logout">
+                            <input type="submit" value="Log out" class="btn btn-success" />
+                        </form>
                 <% } %>
-                <a class="btn btn-info" href="./" role="button">Return home</a>
         </div>
     </div>
     
