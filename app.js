@@ -9,6 +9,7 @@ const signupRouter = require("./routes/signup");
 const loginRouter = require("./routes/login");
 const logoutRouter = require("./routes/logout");
 const adminRouter = require("./routes/admin");
+const userRouter = require("./routes/user");
 
 const userData = require("./model/UserData");
 
@@ -49,6 +50,7 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/admin", adminRouter);
+app.use("/user", userRouter);
 
 //read the user settings
 app.users = new userData("./data/users.json");
