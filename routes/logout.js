@@ -6,15 +6,8 @@ router.get("/", function (req, res, next) {
   req.session.user == undefined;
 
   //destroy session object
-  req.session.destroy((err) => {
-    if (err) {
-      //report possible error
-      console.log(err);
-    } else {
-      //redirect to the main page
-      res.redirect("/");
-    }
-  });
+  req.session = null;
+  res.redirect("/");
 });
 
 module.exports = router;
