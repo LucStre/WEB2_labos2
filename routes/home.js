@@ -4,8 +4,7 @@ const session = require("express-session");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.app.set("secure", true);
-  res.render("home", { user: req.session.user, secure: true });
+  res.render("home", { user: req.session.user, secure: res.app.get("secure") });
 });
 
 router.post("/", function (req, res, next) {
