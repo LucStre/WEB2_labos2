@@ -2,7 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const session = require("cookie-session");
 const path = require("path");
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const homeRouter = require("./routes/home");
 const signupRouter = require("./routes/signup");
