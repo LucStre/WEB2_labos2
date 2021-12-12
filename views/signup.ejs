@@ -20,6 +20,11 @@
                 <input type="submit" value="Sign up" class="btn btn-success" />
                 <input type="reset" value="Reset" class="btn btn-danger">
             </form>
+            <% if (err !==undefined ) { %>
+                <p style="justify-content: center; background-color: red;">
+                    <%= err %>
+                </p>
+                <% } %>
             <br>
             <div>You already have account?</div>
             <form action="./login">
